@@ -1,6 +1,7 @@
 # yolov5汉化版
 
 ### 近期更新
+- 支持飞桨PaddlePaddle的导出和推理了
 - [**v6.2 版本**](https://github.com/ultralytics/yolov5/releases/tag/v6.2): 新增yolov5分类模型, 适配苹果M1/M2芯片，引入ClearML和Deci.ai。
 - [**v6.1 版本**](https://github.com/ultralytics/yolov5/releases/tag/v6.1)：现在支持11种格式的模型导出和推理，更新了预训练权重，指标上相较v6.0好了一点。  
 现在支持导出和推理的模型有：`PyTorch(.pt)`, `TorchScript(.torchscript)`, `ONNX(.onnx)`, `OpenVINO`, `TensorRT(.engine)`, `CoreML(.mlmodel)`, `TensorFlow SavedModel`, `Tensorflow GraphDef(.pb)`, `TensorFlow Lite(.tflite)`, `TensorFlow Edge TPU(.tflite)`, `Tensorflow.js`。  
@@ -225,9 +226,11 @@ ___
 ```bash
 # 快速推理，--source 指定检测源，以下任意一种类型都支持：
 $ python detect.py --source 0  # 本机默认摄像头
-                            file.jpg  # 图片 
-                            file.mp4  # 视频
+                            image.jpg  # 图片 
+                            video.mp4  # 视频
                             path/  # 文件夹下所有媒体
+                            path/*.jpg # 使用glob模块匹配文件
+                            screen # 检测本机屏幕
                             rtsp://170.93.143.139/rtplive/470011e600ef003a004ee33696235daa  # rtsp视频流
                             http://112.50.243.8/PLTV/88888888/224/3221225900/1.m3u8  # http视频流
 ```
